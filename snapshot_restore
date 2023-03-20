@@ -1,0 +1,32 @@
+Script started on Mon Mar 20 19:43:27 2023
+[root@zfs ~]# wget -O otus_task2.file --no-check-certificate 'https://drive.google.com/u/0/uc?id=1gH8gCL9y7Nd5Ti3IRmplZPF1XjzxeRAG&export=download'
+--2023-03-20 19:45:45--  https://drive.google.com/u/0/uc?id=1gH8gCL9y7Nd5Ti3IRmplZPF1XjzxeRAG&export=download
+Resolving drive.google.com (drive.google.com)... 173.194.222.194, 2a00:1450:4010:c0b::c2
+Connecting to drive.google.com (drive.google.com)|173.194.222.194|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://drive.google.com/uc?id=1gH8gCL9y7Nd5Ti3IRmplZPF1XjzxeRAG&export=download [following]
+--2023-03-20 19:45:45--  https://drive.google.com/uc?id=1gH8gCL9y7Nd5Ti3IRmplZPF1XjzxeRAG&export=download
+Reusing existing connection to drive.google.com:443.
+HTTP request sent, awaiting response... 303 See Other
+Location: https://doc-00-bo-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/a91gpa95efmnn2efv3r976tgoq91ep4s/1679345100000/16189157874053420687/*/1gH8gCL9y7Nd5Ti3IRmplZPF1XjzxeRAG?e=download&uuid=bf07cd54-2039-464f-b766-99ea7610cf71 [following]
+Warning: wildcards not supported in HTTP.
+--2023-03-20 19:45:49--  https://doc-00-bo-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/a91gpa95efmnn2efv3r976tgoq91ep4s/1679345100000/16189157874053420687/*/1gH8gCL9y7Nd5Ti3IRmplZPF1XjzxeRAG?e=download&uuid=bf07cd54-2039-464f-b766-99ea7610cf71
+Resolving doc-00-bo-docs.googleusercontent.com (doc-00-bo-docs.googleusercontent.com)... 64.233.161.132, 2a00:1450:4010:c01::84
+Connecting to doc-00-bo-docs.googleusercontent.com (doc-00-bo-docs.googleusercontent.com)|64.233.161.132|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 5432736 (5.2M) [application/octet-stream]
+Saving to: 'otus_task2.file'
+
+100%[=========================================>] 5,432,736   9.07MB/s   in 0.6s   
+
+2023-03-20 19:45:51 (9.07 MB/s) - 'otus_task2.file' saved [5432736/5432736]
+
+[root@zfs ~]# zfs receive otus/test@today < otus_task2.file 
+[root@zfs ~]# find /otus/test/ -name "secret_message"
+/otus/test/task1/file_mess/secret_message
+[root@zfs ~]# cat /otus/test/task1/file_mess/secret_message
+https://github.com/sindresorhus/awesome
+[root@zfs ~]# exit
+exit
+
+Script done on Mon Mar 20 19:54:18 2023
